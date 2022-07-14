@@ -19,13 +19,19 @@ EXE  = CxxTest
 #
 # Everything below that should not have to change ever.
 #
-export BRIDGES_CXXFLAGS=-I${REPL_PATH}/bridges-cxx-3.3.0-x86_64-linux-gnu/include -I${REPL_PATH}/curl/include/
 
-export BRIDGES_LDFLAGS=-L${REPL_PATH}/bridges-cxx-3.3.0-x86_64-linux-gnu/lib -L${REPL_PATH}/curl/lib/
+export CURLHOME=${REPL_PATH}/curl
+
+export BRIDGES_CXXFLAGS=-I${REPL_PATH}/bridges-cxx-install/include -I${CURLHOME}/include/
+
+export BRIDGES_LDFLAGS=-L${REPL_PATH}/bridges-cxx-install/lib -L${CURLHOME}/lib/
 
 export BRIDGES_CXX=clang++
 export BRIDGES_CC=clang++
 export BRIDGES_LD=clang++
+
+export LD_LIBRARY_PATH:=${CURLHOME}/lib:${LD_LIBRARY_PATH}
+
 
 CXX=$(BRIDGES_CXX)
 LD=$(BRIDGES_LD)
