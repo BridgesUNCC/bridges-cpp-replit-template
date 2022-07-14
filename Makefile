@@ -20,11 +20,12 @@ EXE  = CxxTest
 # Everything below that should not have to change ever.
 #
 
-export CURLHOME=${REPL_PATH}/curl
+export CURLHOME=${REPL_PATH}/dependencies/curl
+export BRIDGES_CXX_INSTALL=${REPL_PATH}/dependencies/bridges-cxx-install/
 
-export BRIDGES_CXXFLAGS=-I${REPL_PATH}/bridges-cxx-install/include -I${CURLHOME}/include/
+export BRIDGES_CXXFLAGS=-I${BRIDGES_CXX_INSTALL}/include -I${CURLHOME}/include/
 
-export BRIDGES_LDFLAGS=-L${REPL_PATH}/bridges-cxx-install/lib -L${CURLHOME}/lib/
+export BRIDGES_LDFLAGS=-L${BRIDGES_CXX_INSTALL}/lib -L${CURLHOME}/lib/
 
 export BRIDGES_CXX=clang++
 export BRIDGES_CC=clang++
